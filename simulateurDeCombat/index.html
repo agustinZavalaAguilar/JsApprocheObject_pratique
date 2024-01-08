@@ -10,7 +10,15 @@
         <title></title>
         <meta name="Fight simulation" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="style2.css">
+        <!--H1 font "Nosifer", from google fonts-->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Nosifer&display=swap" rel="stylesheet">    
+        <!--H2 font "Bangers", from google fonts-->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Amatic+SC&family=Bangers&family=Nosifer&display=swap" rel="stylesheet">
     </head>
     <body>
         <header>
@@ -21,15 +29,40 @@
                 <h2>Combats sanglants au retour des beaux jours</h2>
             </div>
         </header>
-        <div class="container">
-            <div class="billySurvivor">
-                <img src="ressources/billySurvivor.png" alt="billySurvivor">
-                <p id="nomDuSurvivant">Billy Survivor</p>
+        <div id="arenaContainer">
+            <div id="affichage">
+                <h3>Qui gagnera ce terrible combat?</h3>
             </div>
-            <div class="clicker">
-                <img src="ressources/clicker.png" alt="clicker">
-                <p id="nomDuZombie">Clark clicker</p>
+        <!-- Carte du survivant dans laquelle on trouve l'image ou l'animation, 
+        les boutons d'actions, etc. -->
+            <div class="card">
+                <!-- <div class="billySurvivor">
+                    <img src="ressources/billySurvivor.png" alt="billySurvivor">
+                    <p id="nomDuSurvivant"></p>
+                    <p id="pointsDeVieSurvivant">Points de vie: 100</p>
+                    <p id="AttaqueSurvivant">Attaque: 50</p>
+                    <p id="Attaque spécialeSurvivant">Attaque spéciale: 70</p>
+                </div>
+                <div class="actionButtons">
+                    <button type="button">Attaquer!</button>
+                    <button type="button">Lancer attaque spéciale!</button>                                     
+                </div>-->
             </div>
+         <!-- Carte du Zombie dans laquelle on trouve l'image ou l'animation, 
+        les boutons d'actions, etc. -->
+        <!--    <div class="card">
+                <div class="clicker">
+                    <img src="ressources/clicker.png" alt="clicker">
+                    <p id="nomDuZombie">Clark clicker</p>                    
+                    <p id="pointsDeVieZombie">Points de vie: 100</p>
+                    <p id="AttaqueZombie">Attaque: 50</p>
+                    <p id="Attaque spécialeZombie">Attaque spéciale: 70</p>
+                </div>
+                <div class="actionButtons">
+                    <button type="button">Attaquer!</button>
+                    <button type="button">Lancer attaque spéciale!</button>      
+                </div>
+            </div>-->
         </div>
         <!--[if lt IE 7]>
             <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>

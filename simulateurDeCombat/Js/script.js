@@ -1,3 +1,7 @@
+//Test fonction Alert
+
+//alert("Préparez vous pour un bain de sang!!");
+
 /*-----------Création de l'object Personnage avec la méthode "constructor" -------------------*/
 
 class Personnage {
@@ -10,41 +14,110 @@ class Personnage {
     this.attaqueSpecial = attaqueSpecial;
     }
 
-    verifierSante(){
+    afficher(texte) {
+        var messageAafficher = document.getElementById("affichage");
+        messageAafficher.textContent = texte;
+    }
+
+    creerCarteCombatant() {
+        //Selection area de combat
+        let arena = document.getElementById('arenaContainer');
+
+        //Création de carte de combatant, ajouter dans arena
+        let carteCombatant = document.createElement('div');
+        carteCombatant.classList.add('personnage');
+        arena.appendChild(carteCombatant);
+
+        //Création de l'avatar et ajout dans la carte du combatant
+       /*
+        let divAvatar = document.createElement('div');
+        divAvatar.classList.add('avatar');
+        let avatar = document.createElement('img');
+        avatar.src = this.getAvatar();
+        divAvatar.appendChild('avatar');
+        carteCombatant.appendChild('divAvatar')
+        */
+
+        //Création du nom de combatant
+        let name = document.createElement('h4');
+        name.classList.add('name');
+        name.textContent = "Name: " + this.pseudo;
+        carteCombatant.appendChild(name);
+
+        //Création de la liste de caractéristiques
+        let listeCaracteristiques = document.createElement('ul');
+        
+        let pointsDeVie = document.createElement('li');
+        pointsDeVie.textContent = 'Points de vie: ' + this.pointsDeVie;
+
+        let pointsDattaque = document.createElement('li');
+        pointsDattaque.textContent = 'Attaque: ' + this.attaque;
+
+        let pointsAttaqueSpecial = document.createElement('li');
+        pointsAttaqueSpecial = 'Attaque spécial: ' + this.attaqueSpecial;
+
+        listeCaracteristiques.appendChild(pointsDeVie);
+        listeCaracteristiques.appendChild(pointsDattaque);
+        listeCaracteristiques.appendChild(pointsAttaqueSpecial);
+        
+        carteCombatant.appendChild(listeCaracteristiques);
+    }
+
+    verifierSante() {
         if(this.pointsDeVie <= 0){
-            console.log(this.pseudo + " est mort dans une flaque de sang -un bel jour de printemps.")
+            let verificationSante = this.pseudo + " est mort dans une flaque de sang -un bel jour de printemps."
+            //personnage.afficher(verificationSante);
+            console.log(verificationSante);
+            this.afficher(verificationSante);
         }
         else{
             console.log(this.pseudo + " a " + this.pointsDeVie + " points de vie");
+            return this.pseudo + " a " + this.pointsDeVie + " points de vie";
         }
     }
 
     attaquer(personnage){
         personnage.pointsDeVie -= this.attaque;
-        console.log(
-            this.pseudo + " attaque " + personnage.pseudo +" avec un coup de " + this.attaque
-        );
-        personnage.verifierSante();
+
+        let resultatAttaque = this.pseudo + " attaque " + personnage.pseudo +
+        " avec un coup de " + this.attaque + " points. ";
+
+        console.log(resultatAttaque);
+
+        /*var disp = document.getElementById("affichage");
+        disp.textContent = resultatAttaque + personnage.verifierSante();
+        */
+       personnage.afficher(resultatAttaque);
+       
+       personnage.verifierSante();
+
     }
 
     lancerAttaqueSpecial(personnage){
         personnage.pointsDeVie -= this.attaqueSpecial;
-        console.log(
-            this.pseudo + " attaque " + personnage.pseudo + " avec un terrible coup de " 
-            + this.attaqueSpecial
-        );
-       personnage.verifierSante();
-    }
         
+        let resultatAttaqueSpecial = this.pseudo + " attaque " + personnage.pseudo + 
+        " avec un terrible coup de fusil et lui arrache " + this.attaqueSpecial + " points!";
+        
+        console.log(resultatAttaqueSpecial);
+        personnage.afficher(resultatAttaqueSpecial);
+
+        personnage.verifierSante();
+    }       
 }
 /*------------Création des personnages---------------------------------*/
 
 let clicker = new Personnage("clicker",100,25,50);
-let billySurvivor = new Personnage("billySurvivor", 50, 30,40);
+let sexySurvivor = new Personnage("Sexy Survivor", 50, 30, 40);
 
 //attaque!!
-billySurvivor.attaquer(clicker);
-clicker.lancerAttaqueSpecial(billySurvivor);
+
+
+//billySurvivor.attaquer(clicker);
+//clicker.lancerAttaqueSpecial(billySurvivor);
+//billySurvivor.verifierSante();
+//billySurvivor.lancerAttaqueSpecial(clicker);
+sexySurvivor.creerCarteCombatant();
 
 /*---------Experimentation DOM et pratique avec des fonctions JS et JsQuery----*/
 // 1) Fonction Js pour changer les noms des combatants--------------------------
@@ -78,4 +151,11 @@ let renameFighters = (survivorName,zombieName)=>{
     el.textContent = zombieName;
 }
 
-renameFighters('Jquery Survivor', 'Old fashioned Zombie Lady');
+//renameFighters('Sexy Survivor', 'Old fashioned Zombie Lady');
+
+
+
+
+
+
+
